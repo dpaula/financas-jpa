@@ -39,6 +39,30 @@ public class TesteBuscaConta {
 
 		em.close();
 
+		// Significa que quando "matamos" a aplicação, a entidade "morre" junto. Esta
+		// entidade, então, é Managed? Não, pois o EntityManager que buscou esta
+		// entidade já foi fechado. Qual é o estado em que ela se encontra, então?
+		//
+		// Trata-se do estado Detached, em que a conta não é mais gerenciada pelo JPA.
+		// Há uma representação sua no banco, no entanto a sincronização automática não
+		// está ativada, pois o gerenciamento não ocorre mais. Nosso objetivo, então, é
+		// transformar esta conta de Detached para Managed para que a sincronização
+		// aconteça.
+		//
+		// Fazemos isto com o método merge(), responsável por transformar uma conta que
+		// já foi gerenciada pelo JPA em um momento anterior, transformando-a em Managed
+		// novamente, permitindo a sincronização com o banco de dados:
+
+		EntityManager em2 = new JPAUtil().getEntityManager();
+		em2.getTransaction().begin();
+
+		conta.setTitular("Leonardo");
+		em2.merge(conta);
+		// em2.persist(conta);
+
+		em2.getTransaction().commit();
+		em2.close();
+
 	}
 
 }
