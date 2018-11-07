@@ -4,10 +4,9 @@
 package br.com.lima.teste;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import br.com.lima.modelo.Conta;
+import br.com.lima.util.JPAUtil;
 
 /**
  * @author ferna
@@ -29,8 +28,8 @@ public class TestaConta {
 
 		// criar uma entidade de persistencia usando as configurações declaradas no
 		// arquivo persistence.xml
-		EntityManagerFactory emFabrica = Persistence.createEntityManagerFactory("financasdb");
-		EntityManager em = emFabrica.createEntityManager();
+
+		EntityManager em = new JPAUtil().getEntityManager();
 
 		// sempre se inicia uma transação
 		em.getTransaction().begin();
@@ -43,7 +42,6 @@ public class TestaConta {
 
 		// não implementam Closeble, então sempre tem q fechar a sessão
 		em.close();
-		emFabrica.close();
 
 	}
 

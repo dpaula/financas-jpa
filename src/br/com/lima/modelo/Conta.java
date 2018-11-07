@@ -15,6 +15,8 @@ import javax.persistence.Id;
 @Entity
 public class Conta {
 
+	// para informar que o atributo id é uma chave primária, e que estamos usando a
+	// estratégia de auto increment
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
