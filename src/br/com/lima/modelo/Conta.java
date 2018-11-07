@@ -100,4 +100,15 @@ public class Conta {
 		this.agencia = agencia;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Conta [id=" + id + ", titular=" + titular + ", numero=" + numero + ", banco=" + banco + ", agencia="
+				+ agencia + "]";
+	}
+
 }

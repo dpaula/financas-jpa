@@ -34,6 +34,11 @@ public class TestaConta {
 		// sempre se inicia uma transação
 		em.getTransaction().begin();
 
+		// Depois chamamos o método persist() para que a conta fosse inserida ao banco
+		// de dados. Sem isto, ela não seria salva e sumiria completamente caso a
+		// aplicação terminasse. Esse estado é chamado Transiente(ou Transient) e a
+		// tarefa do método persist() é justamente alterar esse estado para
+		// Gerenciado(Managed).
 		// realiza a persistencia da entidade
 		em.persist(conta);
 
