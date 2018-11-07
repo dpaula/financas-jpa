@@ -1,0 +1,41 @@
+Para criar a base de dados, utilizamos o comando create database:
+
+# CREATE DATABASE controle_compras;
+CREATE DATABASE
+Podemos listar as bases criadas utilizando \l:
+
+# \l
+                                    List of databases
+       Name       |  Owner   | Encoding |  Collate   |   Ctype    |   Access privileges   
+------------------+----------+----------+------------+------------+-----------------------
+ controle_compras | postgres | UTF8     | en_US.utf8 | en_US.utf8 | 
+ postgres         | postgres | UTF8     | en_US.utf8 | en_US.utf8 | 
+ template0        | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+                  |          |          |            |            | postgres=CTc/postgres
+ template1        | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+                  |          |          |            |            | postgres=CTc/postgres
+(4 rows)
+Para conectar-se a uma base de dados, utiliza-se o \c passando o nome da base.
+
+# \c controle_compras
+You are now connected to database "controle_compras" as user "postgres".
+Para criar a tabela compras:
+
+CREATE TABLE compras (id SERIAL PRIMARY KEY, 
+                      valor decimal, 
+                      data date,
+                      observacoes varchar(255), 
+                      recebido smallint);
+Para listar a estrutura de uma tabela em uma base de dados que estamos conectados, utilizamos o \d:
+
+# \d compras
+Table "public.compras"
+   Column    |          Type          |                      Modifiers                       
+-------------+------------------------+------------------------------------------------------
+ id          | integer                | not null default nextval('compras_id_seq'::regclass)
+ valor       | numeric                | 
+ data        | date                   | 
+ observacoes | character varying(255) | 
+ recebido    | smallint               | 
+Indexes:
+    "compras_pkey" PRIMARY KEY, btree (id)
