@@ -12,6 +12,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -34,6 +35,26 @@ public class Movimentacao {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar data;
 	private String descricao;
+
+	// definindo uma cardinalidade de muitos para um, muitas movimentações para uma
+	// conta
+	@ManyToOne
+	private Conta conta;
+
+	/**
+	 * @return the conta
+	 */
+	public Conta getConta() {
+		return conta;
+	}
+
+	/**
+	 * @param conta
+	 *            the conta to set
+	 */
+	public void setConta(Conta conta) {
+		this.conta = conta;
+	}
 
 	/**
 	 * @return the id
