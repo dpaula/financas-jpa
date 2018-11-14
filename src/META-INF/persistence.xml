@@ -11,7 +11,8 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
 <!-- 		Aqui são listados todas as entidades -->
-		<class>br.com.caelum.livraria.modelo.Item</class>
+		<class>br.com.lima.modelo.Conta</class>
+		<class>br.com.lima.modelo.Movimentacao</class>
 
 		<properties>
 <!-- 			Propriedades JDBC -->
