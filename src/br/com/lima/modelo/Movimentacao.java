@@ -45,6 +45,8 @@ public class Movimentacao {
 
 	// muitas movimentações para muitas categorias, assim n categorias poderão ser
 	// usadas para n movimentações
+	// o hibernate irá criar uma tabela de relacionamento extra,
+	// movimentacao_categoria
 	@ManyToMany
 	private List<Categoria> categoria;
 

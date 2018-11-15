@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 /**
@@ -23,7 +24,10 @@ public class Cliente {
 	private String proficao;
 	private String endereco;
 
-	// relacionando uma conta para um cliente e vice versa;
+	// relacionando uma conta para um cliente e vice versa
+	// definindo que a conta será unica para cada cliente (deve ser definidi na
+	// criação da tabela)
+	@JoinColumn(unique = true)
 	@OneToOne
 	private Conta conta;
 
