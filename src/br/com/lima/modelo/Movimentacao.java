@@ -12,6 +12,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -40,6 +41,11 @@ public class Movimentacao {
 	// conta
 	@ManyToOne
 	private Conta conta;
+
+	// muitas movimentações para muitas categorias, assim n categorias poderão ser
+	// usadas para n movimentações
+	@ManyToMany
+	private Categoria categoria;
 
 	/**
 	 * @return the conta
