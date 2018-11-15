@@ -10,6 +10,7 @@ import javax.persistence.Query;
 
 import br.com.lima.modelo.Conta;
 import br.com.lima.modelo.Movimentacao;
+import br.com.lima.modelo.TipoMovimentacao;
 import br.com.lima.util.JPAUtil;
 
 /**
@@ -30,10 +31,12 @@ public class TesteJPQL {
 		conta.setId(1);
 
 		// criando uma jpql sempre acessando os campos da tabela como atributos
-		String jpql = "select m from Movimentacao m where m.conta = :pConta" + " order by m.valor desc";
+		String jpql = "select m from Movimentacao m where m.conta = :pConta" + " and m.tipo = :pTipo"
+				+ " order by m.valor desc";
 		Query query = em.createQuery(jpql);
 		// setando parametros objeto
 		query.setParameter("pConta", conta);
+		query.setParameter("pTipo", TipoMovimentacao.SAIDA);
 
 		// retorna a lista dos registros
 		List<Movimentacao> movis = query.getResultList();
