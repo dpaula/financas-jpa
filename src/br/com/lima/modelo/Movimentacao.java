@@ -155,4 +155,26 @@ public class Movimentacao {
 		this.descricao = descricao;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Movimentacao [id=");
+		builder.append(id);
+		builder.append(", tipo=");
+		builder.append(tipo);
+		builder.append(", descricao=");
+		builder.append(descricao);
+		builder.append(", conta=");
+		builder.append(conta);
+		builder.append(", categoria=");
+		builder.append(categoria);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }

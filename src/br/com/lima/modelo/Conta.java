@@ -107,8 +107,9 @@ public class Conta {
 	 */
 	@Override
 	public String toString() {
-		return "Conta [id=" + id + ", titular=" + titular + ", numero=" + numero + ", banco=" + banco + ", agencia="
-				+ agencia + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Conta [id=").append(id).append(", numero=").append(numero).append("]");
+		return builder.toString();
 	}
 
 }
