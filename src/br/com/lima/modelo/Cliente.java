@@ -25,8 +25,11 @@ public class Cliente {
 	private String endereco;
 
 	// relacionando uma conta para um cliente e vice versa
-	// definindo que a conta será unica para cada cliente (deve ser definidi na
-	// criação da tabela)
+	// definindo que a conta será unica para cada cliente
+	// A anotação @JoinColumn só funciona na criação do Schema, portanto é
+	// necessário deletar o banco e criá-lo novamente.A anotação @JoinColumn só
+	// funciona na criação do Schema, portanto é necessário deletar o banco e
+	// criá-lo novamente.
 	@JoinColumn(unique = true)
 	@OneToOne
 	private Conta conta;
