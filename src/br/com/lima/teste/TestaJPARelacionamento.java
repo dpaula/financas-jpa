@@ -41,6 +41,8 @@ public class TestaJPARelacionamento {
 
 		em.getTransaction().begin();
 
+		// passando as entidades de Transient para Managed
+
 		// primeiro persiste a conta senão da erro, pois ao persistir a movimentação não
 		// existirá foreing key para a conta
 		em.persist(conta);

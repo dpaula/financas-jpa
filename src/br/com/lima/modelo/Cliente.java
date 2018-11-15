@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  * @author ferna
@@ -21,6 +22,25 @@ public class Cliente {
 	private String nome;
 	private String proficao;
 	private String endereco;
+
+	// relacionando uma conta para um cliente e vice versa;
+	@OneToOne
+	private Conta conta;
+
+	/**
+	 * @return the conta
+	 */
+	public Conta getConta() {
+		return conta;
+	}
+
+	/**
+	 * @param conta
+	 *            the conta to set
+	 */
+	public void setConta(Conta conta) {
+		this.conta = conta;
+	}
 
 	/**
 	 * @return the id
