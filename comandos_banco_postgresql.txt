@@ -39,3 +39,5 @@ Table "public.compras"
  recebido    | smallint               | 
 Indexes:
     "compras_pkey" PRIMARY KEY, btree (id)
+    
+\d --lista as tabelas da base atual

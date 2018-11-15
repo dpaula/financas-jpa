@@ -21,6 +21,17 @@ public class Categoria {
 	private String nome;
 
 	/**
+	 * @deprecated uso apenas para JPA
+	 */
+	@Deprecated
+	public Categoria() {
+	}
+
+	public Categoria(String nome) {
+		this.nome = nome;
+	}
+
+	/**
 	 * @return the id
 	 */
 	public Integer getId() {

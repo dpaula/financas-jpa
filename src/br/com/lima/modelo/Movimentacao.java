@@ -59,7 +59,7 @@ public class Movimentacao {
 	 * @param categoria
 	 *            the categoria to set
 	 */
-	public void setCategoria(List<Categoria> categoria) {
+	public void setCategorias(List<Categoria> categoria) {
 		this.categoria = categoria;
 	}
 
