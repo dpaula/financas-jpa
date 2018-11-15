@@ -5,6 +5,7 @@ package br.com.lima.modelo;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -45,7 +46,22 @@ public class Movimentacao {
 	// muitas movimentações para muitas categorias, assim n categorias poderão ser
 	// usadas para n movimentações
 	@ManyToMany
-	private Categoria categoria;
+	private List<Categoria> categoria;
+
+	/**
+	 * @return the categoria
+	 */
+	public List<Categoria> getCategoria() {
+		return categoria;
+	}
+
+	/**
+	 * @param categoria
+	 *            the categoria to set
+	 */
+	public void setCategoria(List<Categoria> categoria) {
+		this.categoria = categoria;
+	}
 
 	/**
 	 * @return the conta
