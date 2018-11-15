@@ -30,7 +30,7 @@ public class TesteJPQL {
 		conta.setId(1);
 
 		// criando uma jpql sempre acessando os campos da tabela como atributos
-		String jpql = "select m from Movimentacao m where m.conta = :pConta";
+		String jpql = "select m from Movimentacao m where m.conta = :pConta" + " order by m.valor desc";
 		Query query = em.createQuery(jpql);
 		// setando parametros objeto
 		query.setParameter("pConta", conta);
