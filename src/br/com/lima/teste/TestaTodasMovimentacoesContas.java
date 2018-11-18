@@ -20,7 +20,7 @@ public class TestaTodasMovimentacoesContas {
 		// Então, precisaremos substituir o comportamento Lazy por Eager Loading, a
 		// partir do parâmetro join fetch, o que quer dizer que queremos juntar, nesta
 		// query, a conta e a movimentação.
-		String jpql = "select c from Conta c join fetch c.movimentacoes";
+		String jpql = "select distinct c from Conta c left join fetch c.movimentacoes";
 		Query query = em.createQuery(jpql);
 
 		List<Conta> contas = query.getResultList();
