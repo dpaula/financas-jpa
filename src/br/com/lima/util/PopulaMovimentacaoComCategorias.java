@@ -41,8 +41,11 @@ public class PopulaMovimentacaoComCategorias {
 		// relaciona a conta já existente
 		movi.setConta(conta);
 
+		Calendar amanha = Calendar.getInstance();
+		amanha.add(Calendar.DAY_OF_MONTH, 1);
+
 		Movimentacao movi2 = new Movimentacao();
-		movi2.setData(Calendar.getInstance());
+		movi2.setData(amanha);
 		movi2.setDescricao("Notebook");
 		movi2.setTipo(TipoMovimentacao.SAIDA);
 		movi2.setValor(new BigDecimal("5545.00"));
