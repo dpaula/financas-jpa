@@ -3,8 +3,6 @@
  */
 package br.com.lima.teste;
 
-import java.math.BigDecimal;
-
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -30,17 +28,22 @@ public class TesteFuncoesJPQL {
 
 		// selecionando a soma dos registros das movimentações de uma conta, para
 		// movimentações com tipo de saida
-		String jpql = "select sum(m.valor) from Movimentacao m where m.conta = :pConta" + " and m.tipo = :pTipo";
+		String jpql = "select avg(m.valor) from Movimentacao m where m.conta = :pConta"
+				+ " and m.tipo = :pTipo";
 
 		Query query = em.createQuery(jpql);
 		// setando parametros objeto
 		query.setParameter("pConta", conta);
 		query.setParameter("pTipo", TipoMovimentacao.SAIDA);
 
-		// trazendo um objeto do resultado conforme retorno da jpql
-		BigDecimal somaValores = (BigDecimal) query.getSingleResult();
+		// trazendo um objeto do resultado conforme retorno da jpql, onde temo apenas um
+		// valor
+		// BigDecimal somaValores = (BigDecimal) query.getSingleResult();
+		Double media = (Double) query.getSingleResult();// para média tem que ser tipo Double
 
-		System.out.println("Soma dos valores da conta " + conta.getNumero() + " -> " + somaValores);
+		//
+//		System.out.println("Soma dos valores da conta " + conta.getNumero() + " -> " + somaValores);
+		System.out.println("Média dos valores da conta " + conta.getNumero() + " -> " + media);
 
 		em.getTransaction().commit();
 		em.close();
